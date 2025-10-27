@@ -9,7 +9,7 @@
       ansible.builtin.package_facts:
         manager: auto
 
-    - name: Fail if {{ gpg_keys_package }} package is installed
+    - name: Fail if {{ gpg_keys_package }} package is not installed
       ansible.builtin.fail:
         msg: "{{ gpg_keys_package }} package is not installed"
       when: gpg_keys_package not in ansible_facts.packages
@@ -17,4 +17,9 @@
     - name: Install a package from the free repository
       ansible.builtin.package:
         name: rpmfusion-free-release-tainted
+        state: present
+
+    - name: Install a package from the nonfree repository
+      ansible.builtin.package:
+        name: rpmfusion-nonfree-release-tainted
         state: present
