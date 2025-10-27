@@ -1,3 +1,6 @@
 #SPDX-License-Identifier: MIT-0
 ---
 # defaults file for rpmfusion
+
+rpmfusion_free_repo_state: present
+rpmfusion_nonfree_repo_state: present

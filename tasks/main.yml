@@ -1,6 +1,8 @@
 #SPDX-License-Identifier: MIT-0
 ---
 # tasks file for rpmfusion
- - name: Role start
-   debug:
-    msg: Role start
+
+- name: Install {{ gpg_keys_package }} package
+  ansible.builtin.dnf:
+    name: "{{ gpg_keys_package }}"
+    state: present
