@@ -3,6 +3,12 @@
   hosts: localhost
   gather_facts: false
   tasks:
+    - name: Build custom image
+      containers.podman.podman_image:
+        name: "{{ hostvars[item]['container_image_tag'] }}"
+        path: "{{ hostvars[item]['container_image_path'] }}"
+      loop: "{{ groups['molecule'] }}"
+
     - name: Create containers from inventory
       containers.podman.podman_container:
         hostname: "{{ item }}"
@@ -14,6 +20,8 @@
         capabilities: "{{ hostvars[item]['container_capabilities'] | default(omit) }}"
         systemd: "{{ hostvars[item]['container_systemd'] | default(false) }}"
         log_driver: "{{ hostvars[item]['container_log_driver'] | default('json-file') }}"
+        rm: "{{ hostvars[item]['container_rm'] }}"
+        rmi: "{{ hostvars[item]['container_rmi'] }}"
         state: started
       register: result
       loop: "{{ groups['molecule'] }}"

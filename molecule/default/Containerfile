@@ -1,0 +1,9 @@
+FROM registry.fedoraproject.org/fedora:42
+
+# install dependencies
+RUN dnf -y upgrade \
+    && dnf -y install python3 python3-libdnf5 \
+    && dnf clean all
+
+# run the command
+CMD ["/bin/bash"]
