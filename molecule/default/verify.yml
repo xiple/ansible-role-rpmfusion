@@ -3,7 +3,7 @@
   hosts: molecule
   gather_facts: true
   tasks:
-    - name: Install a package
+    - name: Install a package from the free repository
       ansible.builtin.package:
-        name: stow
+        name: rpmfusion-free-release-tainted
         state: present
