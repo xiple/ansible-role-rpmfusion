@@ -16,3 +16,13 @@
   ansible.builtin.dnf:
     name: "{{ rmpfusion_free_repo_url }}"
     state: present
+
+- name: Install RPM Fusion 'nonfree' gpg key
+  ansible.builtin.rpm_key:
+    key: "{{ rmpfusion_nonfree_rpmkey_path }}"
+    state: present
+
+- name: Install RPM Fusion 'nonfree' repository
+  ansible.builtin.dnf:
+    name: "{{ rpmfusion_nonfree_repo_url }}"
+    state: present
