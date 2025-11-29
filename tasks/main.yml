@@ -2,7 +2,7 @@
 ---
 # tasks file for rpmfusion
 
-- name: Install {{ gpg_keys_package }} package
+- name: Install distribution GPG keys package
   ansible.builtin.dnf:
     name: "{{ gpg_keys_package }}"
     state: present
