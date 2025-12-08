@@ -1,7 +1,7 @@
 Ansible role: RPM Fusion
 =========
 
-An ansible role that installs RPM Fusion free & nofree repositories.
+An ansible role that installs RPM Fusion free & nonfree repositories.
 
 Requirements
 ----------------
