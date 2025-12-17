@@ -1,6 +1,8 @@
 Ansible role: RPM Fusion
 =========
 
+[![CI](https://github.com/xiple/ansible-role-rpmfusion/actions/workflows/ci.yml/badge.svg)](https://github.com/xiple/ansible-role-rpmfusion/actions/workflows/ci.yml)
+
 An ansible role that installs RPM Fusion free & nonfree repositories.
 
 Requirements
