@@ -18,7 +18,7 @@ None.
 Supported distributions
 ----------------
 
-This role has been been developed and tested on Fedora 42, 43 and 44.
+This role has been been developed and tested on Fedora 43, 44.
 
 Example Playbook
 ----------------

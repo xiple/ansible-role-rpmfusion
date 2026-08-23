@@ -38,7 +38,6 @@ jobs:
         distro:
           - fedora44
           - fedora43
-          - fedora42
 
     steps:
       - name: Check out the codebase.
