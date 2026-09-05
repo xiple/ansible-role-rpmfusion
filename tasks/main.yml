@@ -16,6 +16,7 @@
   ansible.builtin.get_url:
     url: "{{ rmpfusion_free_repo_url }}"
     dest: "{{ rmpfusion_free_package_dst }}"
+    mode: '0600'
 
 - name: Install RPM Fusion 'free' repository
   ansible.builtin.dnf:
@@ -31,6 +32,7 @@
   ansible.builtin.get_url:
     url: "{{ rpmfusion_nonfree_repo_url }}"
     dest: "{{ rmpfusion_nonfree_package_dst }}"
+    mode: '0600'
 
 - name: Install RPM Fusion 'nonfree' repository
   ansible.builtin.dnf:
