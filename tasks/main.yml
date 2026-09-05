@@ -12,9 +12,14 @@
     key: "{{ rmpfusion_free_rpmkey_path }}"
     state: present
 
+- name: Download RPM Fusion 'free' repository package
+  ansible.builtin.get_url:
+    url: "{{ rmpfusion_free_repo_url }}"
+    dest: "{{ rmpfusion_free_package_dst }}"
+
 - name: Install RPM Fusion 'free' repository
   ansible.builtin.dnf:
-    name: "{{ rmpfusion_free_repo_url }}"
+    name: "{{ rmpfusion_free_package_dst }}"
     state: present
 
 - name: Install RPM Fusion 'nonfree' gpg key
@@ -22,7 +27,12 @@
     key: "{{ rmpfusion_nonfree_rpmkey_path }}"
     state: present
 
+- name: Download RPM Fusion 'nonfree' repository package
+  ansible.builtin.get_url:
+    url: "{{ rpmfusion_nonfree_repo_url }}"
+    dest: "{{ rmpfusion_nonfree_package_dst }}"
+
 - name: Install RPM Fusion 'nonfree' repository
   ansible.builtin.dnf:
-    name: "{{ rpmfusion_nonfree_repo_url }}"
+    name: "{{ rmpfusion_nonfree_package_dst }}"
     state: present
