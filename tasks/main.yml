@@ -17,6 +17,10 @@
     url: "{{ rmpfusion_free_repo_url }}"
     dest: "{{ rmpfusion_free_package_dst }}"
     mode: '0600'
+  register: result
+  retries: 3
+  delay: 10
+  until: result is succeeded
 
 - name: Install RPM Fusion 'free' repository
   ansible.builtin.dnf:
@@ -33,6 +37,10 @@
     url: "{{ rpmfusion_nonfree_repo_url }}"
     dest: "{{ rmpfusion_nonfree_package_dst }}"
     mode: '0600'
+  register: result
+  retries: 3
+  delay: 10
+  until: result is succeeded
 
 - name: Install RPM Fusion 'nonfree' repository
   ansible.builtin.dnf:
